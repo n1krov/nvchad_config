@@ -37,11 +37,12 @@ vim.g.user_emmet_leader_key = '<C-e>' -- Usa Ctrl+e como atajo para expandir abr
 -----------------------------------------
 --- Copilot
 -----------------------------------------
-vim.g.copilot_no_tab_map = true -- Desactiva el mapeo por defecto de <Tab>
+vim.g.copilot_no_tab_map = false -- Desactiva el mapeo por defecto de <Tab>
 
-vim.api.nvim_set_keymap("i", "<C-j>", 'copilot#Accept("<CR>")', { silent = true, expr = true }) -- Aceptar sugerencia con Ctrl+j
-vim.api.nvim_set_keymap("i", "<C-k>", 'copilot#Dismiss()', { silent = true, expr = true }) -- Rechazar sugerencia con Ctrl+k
-vim.api.nvim_set_keymap("i", "<C-l>", 'copilot#Next()', { silent = true, expr = true }) -- Siguiente sugerencia
+-- Nuevos atajos para Copilot
+-- vim.api.nvim_set_keymap("i", "<C-f>", 'copilot#Accept("<CR>")', { silent = true, expr = true }) -- Aceptar sugerencia con Ctrl+f
+vim.api.nvim_set_keymap("i", "<C-'>", 'copilot#Dismiss()', { silent = true, expr = true }) -- Rechazar sugerencia con Ctrl+'
+vim.api.nvim_set_keymap("i", "<C-¿>", 'copilot#Next()', { silent = true, expr = true }) -- Siguiente sugerencia con Ctrl+¿
 
 ------------------------------------------
 --- usar el portapapeles del sistema
@@ -64,4 +65,6 @@ vim.g.clipboard = {
 }
 
 vim.o.cursorlineopt = 'both' -- to enable cursorline
+
+
 

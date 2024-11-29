@@ -1,15 +1,13 @@
-
-
 return {
-    
-    require('plugins.alpha'),
+  require('plugins.alpha'),
+  require('plugins.markdown_plugins'),
+
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
 
-  -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -17,20 +15,19 @@ return {
     end,
   },
 
-      -- {
-      -- 	"nvim-treesitter/nvim-treesitter",
-      -- 	opts = {
-      -- 		ensure_installed = {
-      -- 			"vim", "lua", "vimdoc",
-      --      "html", "css"
-      -- 		},
-      -- 	},
-      -- },
-
-
-    -- Plugin para Discord Rich Presence
+  -- {
+  -- 	"nvim-treesitter/nvim-treesitter",
+  -- 	opts = {
+  -- 		ensure_installed = {
+  -- 			"vim", "lua", "vimdoc",
+  --      "html", "css"
+  -- 		},
+  -- 	},
+  -- },
+  -- Plugin para Discord Rich Presence
     {
       'andweeb/presence.nvim',
+        lazy = false, -- cargar cuando se inicie Neovim
       config = function()
         require("presence").setup({
           -- Opciones generales
@@ -59,18 +56,12 @@ return {
 
   {
     'github/copilot.vim',
+    lazy= false,
     config = function()
       vim.g.copilot_filetypes = {
         markdown = true,
         -- Añade otros tipos de archivo que desees
       }
-      -- Mapeos en modo inserción
-      vim.api.nvim_set_keymap("i", "<C-Space>", "<Tab>", { expr = true, silent = true })
-     
-      -- Mapeos en modo normal
-      vim.api.nvim_set_keymap("i", "<C-S>", "<Plug>(copilot-show)", { noremap = false, silent = true })
-      vim.api.nvim_set_keymap("i", "<C-N>", "<Plug>(copilot-next)", { noremap = false, silent = true })
-      vim.api.nvim_set_keymap("i", "<C-P>", "<Plug>(copilot-prev)", { noremap = false, silent = true })
     end,
   },
 }
