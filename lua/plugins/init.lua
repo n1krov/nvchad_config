@@ -15,15 +15,14 @@ return {
     end,
   },
 
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  {
+  	"nvim-treesitter/nvim-treesitter",
+  	opts = {
+  		ensure_installed = {
+  			"vim", "lua", "vimdoc", "html", "css", "svelte"
+  		},
+  	},
+  },
   -- Plugin para Discord Rich Presence
     {
       'andweeb/presence.nvim',
@@ -54,6 +53,20 @@ return {
       end
     },
 
+     -- vim-commentary
+     {
+         'tpope/vim-commentary',
+        event = 'BufRead', -- Cargar cuando se lea un archivo
+         config = function()
+             -- Opcional: Configuración específica para vim-commentary
+             -- para que tenga en cuenta comentarios en archivos .svelte
+             vim.cmd [[
+               autocmd FileType svelte setlocal commentstring=/*\ %s\ */
+               autocmd FileType svelte setlocal commentstring=//\ %s
+               autocmd FileType svelte setlocal commentstring=<!--\ %s\ -->
+             ]]
+         end
+     },
   {
     'github/copilot.vim',
     lazy= false,
