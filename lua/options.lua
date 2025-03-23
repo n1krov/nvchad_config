@@ -64,6 +64,21 @@ vim.opt.clipboard = 'unnamedplus'
 --     cache_enabled = 0
 -- }
 
+-- Para versiones de ubuntu el clipboard es diferente
+vim.g.clipboard = {
+   name = 'xclip',
+   copy = {
+   ['+'] = 'xclip -selection clipboard',
+   ['*'] = 'xclip -selection clipboard',
+   },
+   paste = {
+   ['+'] = 'xclip -selection clipboard -o',
+   ['*'] = 'xclip -selection clipboard -o',
+   },
+   cache_enabled = 0 
+}
+
+
 vim.o.cursorlineopt = 'both' -- to enable cursorline
 
 
