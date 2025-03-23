@@ -51,18 +51,18 @@ vim.opt.clipboard = 'unnamedplus'
 
 -- si utilizas wayland, es posible que necesites instalar wl-clipboard
 -- en caso de que uses x11 solo con xclip es suficiente
-vim.g.clipboard = {
-    name = 'wl-copy',
-    copy = {
-        ['+'] = 'wl-copy',
-        ['*'] = 'wl-copy',
-    },
-    paste = {
-        ['+'] = 'wl-paste',
-        ['*'] = 'wl-paste',
-    },
-    cache_enabled = 0
-}
+-- vim.g.clipboard = {
+--     name = 'wl-copy',
+--     copy = {
+--         ['+'] = 'wl-copy',
+--         ['*'] = 'wl-copy',
+--     },
+--     paste = {
+--         ['+'] = 'wl-paste',
+--         ['*'] = 'wl-paste',
+--     },
+--     cache_enabled = 0
+-- }
 
 vim.o.cursorlineopt = 'both' -- to enable cursorline
 
