@@ -25,8 +25,12 @@ main()
 {
     echo -e "${GREEN}[*] Aplicando enlace simbolico a nvim...${RESET}"
     sleep 2
+    cd ..
+    
     rm -rf ~/.config/nvim
     ln -s "$(pwd)/nvim" ~/.config
+
+    cd nvim
 
     echo -e "${BLUE}[*] Script completado.${RESET}"
     tput cnorm
